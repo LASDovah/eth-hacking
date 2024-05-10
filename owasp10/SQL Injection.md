@@ -1,0 +1,2 @@
+#### Inicio
+La inyección SQL es un tipo de ataque informático que aprovecha vulnerabilidades en aplicaciones web para manipular las consultas de base de datos y obtener información confidencial o modificar datos. Esto puede permitir a un atacante acceder a información sensible, como contraseñas o datos financieros, o incluso tomar el control completo del sistema.
