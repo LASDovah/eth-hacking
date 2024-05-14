@@ -21,5 +21,5 @@ CREATE TABLE users(id NOT NULL AUTO_INCREMENT PRIMARY KEY, username VARCHAR(32),
 ```
 **Ver los atributos de la tabla**
 ```sql
-CREATE TABLE users(id NOT NULL AUTO_INCREMENT PRIMARY KEY, username VARCHAR(32), password(32));
+DESCRIBE users;
 ```
