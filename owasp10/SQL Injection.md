@@ -1,4 +1,8 @@
-![[What is a SQL injection.webp]]
+
+<p align="center">
+  <img src="https://i.postimg.cc/YCf3sz4z/What-is-a-SQL-injection.webp" alt="textoInformativoOSINT"/>
+</p>
+
 ### Introducción 
 Las bases de datos en el back-end: Estas bases de datos se utilizan para:
 + Almacenar y recuperar datos relacionados con la aplicación web.
@@ -17,7 +21,9 @@ La inyección SQL es una vulnerabilidad de seguridad que ocurre cuando los datos
 1. Inyectar código SQL
 2. Subvertir la lógica de aplicación web cambiando la consulta original o ejecutando una completamente nueva.
 Primero, el atacante debe inyectar código SQL fuera de los límites de entrada del usuario esperados, por lo que no se ejecuta como simple entrada de usuario. **En el caso más básico, esto se hace inyectando una sola cita( ') o una doble cotización ( ")** para escapar de los límites de la entrada del usuario e inyectar datos directamente en la consulta.
-![[Pasted image 20240514115532.png]]
+<p align="center">
+  <img src="https://i.postimg.cc/NFH876qT/Pasted-image-20240514115532.png" alt="textoInformativoOSINT"/>
+</p>
 
 ----
 #### Consultas SQL 
@@ -59,6 +65,7 @@ En la similitud Tier 2 y el DBMS, hay una relación estrecha ya que la Tier 2 ge
 
 ---
 ## Sistema de Gestión de Base de datos (DBMS)
+
 + Crear, definir, organizar y administrar base de datos.
 + Varios tipos de DBMS fueron diseñados con el tiempo, tales como tiendas de archivos, Relational DBMS (RDBMS), NoSQL, Graph y Key/Value.
 
@@ -81,4 +88,5 @@ Administrador de la base de datos (Database Administrator) > Administra y mantie
 + Su tarea puede incluir la instalación y configuración del DBMS, la optimización del rendimiento, la realización de copias de seguridad y recuperación, la gestión de usuarios y permisos, la monitorización del sistema, etc.
 
 En otras palabras, en la arquitectura mencionada arriba, los usuarios interactúan con la aplicación a través de la capa de frontend (Tier 1), que luego envía solicitudes backend (Tier 2) para su procesamiento mediante el DBMS.
+
 `nota: es posible alojar el servidor de la aplicación, así como el DBMS en el mismo host. Sin embargo, las bases de datos con grandes cantidades de datos que soportan a muchos usuarios suelen estar alojadas por separado para mejorar el rendimiento y la escalabilidad.`
