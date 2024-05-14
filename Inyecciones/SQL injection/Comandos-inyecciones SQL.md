@@ -23,3 +23,4 @@ CREATE TABLE users(id NOT NULL AUTO_INCREMENT PRIMARY KEY, username VARCHAR(32),
 ```sql
 DESCRIBE users;
 ```
+![db basica](https://github.com/LASDovah/vulnerability-pentest/assets/163781606/8a15a33b-18c0-4d42-a3e5-ac55a66d7f73)
