@@ -17,7 +17,7 @@ USE youtube;
 ```
 **Crear tabla**
 ```sql
-CREATE TABLE users(id NOT NULL AUTO_INCREMENT PRIMARY KEY, username VARCHAR(32), password(32));
+CREATE TABLE users(id NOT NULL AUTO_INCREMENT PRIMARY KEY, username VARCHAR(32), password VARCHAR(32));
 ```
 **Ver los atributos de la tabla**
 ```sql
