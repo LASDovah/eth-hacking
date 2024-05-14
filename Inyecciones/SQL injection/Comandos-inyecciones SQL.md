@@ -34,6 +34,10 @@ INSERT INTO users(username, password) values('admin','admin123');
 UPDATE users SET username='admin_user' WHERE username = 'admin';
 #Se coloca primero el usuario a modificar y a lo ultimo el nombre creado
 ```
+**Ver * el contenido insertado dentro de la tabla**
+```sql
+SELECT * FROM users;
+```
 **Eliminar Tabla COMPLETA**
 ```sql
 DROP TABLE usuarios;
