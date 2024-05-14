@@ -23,3 +23,20 @@ CREATE TABLE users(id NOT NULL AUTO_INCREMENT PRIMARY KEY, username VARCHAR(32),
 ```sql
 DESCRIBE users;
 ```
+**Insertar un valor**
+```sql
+INSERT INTO users(username, password) values('admin','admin123');
+```
+![db basica](https://github.com/LASDovah/vulnerability-pentest/assets/163781606/8a15a33b-18c0-4d42-a3e5-ac55a66d7f73)
+
+**Modificar un valor insertado**
+```sql
+UPDATE users SET username='admin_user' WHERE username = 'admin';
+#Se colocar
+```
+**Eliminar Tabla**
+```sql
+UPDATE users SET username='admin_user' WHERE username = 'admin';
+#Se colocar
+```
+---
