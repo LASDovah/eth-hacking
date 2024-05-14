@@ -32,22 +32,19 @@ INSERT INTO users(username, password) values('admin','admin123');
 **Modificar un valor insertado**
 ```sql
 UPDATE users SET username='admin_user' WHERE username = 'admin';
-#Se colocar
+#Se coloca primero el usuario a modificar y a lo ultimo el nombre creado
 ```
-**Eliminar Tabla**
+**Eliminar Tabla COMPLETA**
 ```sql
-UPDATE users SET username='admin_user' WHERE username = 'admin';
-#Se colocar
+DROP TABLE usuarios;
 ```
----
-**Modificar un valor insertado**
+**Eliminar FILA completa de una tabla**
 ```sql
-UPDATE users SET username='admin_user' WHERE username = 'admin';
-#Se colocar
+DELETE FROM users WHERE id = 3;
+//Esto elimina la fila con id igual a 3 de la tabla users
 ```
-**Eliminar Tabla**
+**Eliminar COLUMNA completa de una tabla**
 ```sql
-UPDATE users SET username='admin_user' WHERE username = 'admin';
-#Se colocar
+ALTER TABLE users DROP COLUMN subscription;
+//Elimina la columna completa de subscription
 ```
----
