@@ -52,3 +52,12 @@ DELETE FROM users WHERE id = 3;
 ALTER TABLE users DROP COLUMN subscription;
 //Elimina la columna completa de subscription
 ```
+**Agregar una columna nueva**
+```sql
+ALTER TABLE dbo.doc_exa ADD age INT(2), email VARCHAR(230) ;
+```
+**Agregar contenido que estaba NULL**
+```sql
+UPDATE users SET age=33, email='admin@outlook.com' WHERE id=1;
+//Selecciona a través del ID=1 el cambio. (RECORDAR USAR WHERE o se cambia la edad y email en todas las casillas de la tabla)
+```
