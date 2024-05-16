@@ -1,6 +1,6 @@
 
 <p align="center">
-  <img src="https://i.postimg.cc/YCf3sz4z/What-is-a-SQL-injection.webp" alt="textoInformativoOSINT"/>
+  <img src="https://i.postimg.cc/YCf3sz4z/What-is-a-SQL-injection.webp" alt="sql"/>
 </p>
 
 ### Introducción 
@@ -22,7 +22,7 @@ La inyección SQL es una vulnerabilidad de seguridad que ocurre cuando los datos
 2. Subvertir la lógica de aplicación web cambiando la consulta original o ejecutando una completamente nueva.
 Primero, el atacante debe inyectar código SQL fuera de los límites de entrada del usuario esperados, por lo que no se ejecuta como simple entrada de usuario. **En el caso más básico, esto se hace inyectando una sola cita( ') o una doble cotización ( ")** para escapar de los límites de la entrada del usuario e inyectar datos directamente en la consulta.
 <p align="center">
-  <img src="https://i.postimg.cc/NFH876qT/Pasted-image-20240514115532.png" alt="textoInformativoOSINT"/>
+  <img src="https://i.postimg.cc/NFH876qT/Pasted-image-20240514115532.png" alt="sql"/>
 </p>
 
 ----
@@ -90,3 +90,15 @@ Administrador de la base de datos (Database Administrator) > Administra y mantie
 En otras palabras, en la arquitectura mencionada arriba, los usuarios interactúan con la aplicación a través de la capa de frontend (Tier 1), que luego envía solicitudes backend (Tier 2) para su procesamiento mediante el DBMS.
 
 `nota: es posible alojar el servidor de la aplicación, así como el DBMS en el mismo host. Sin embargo, las bases de datos con grandes cantidades de datos que soportan a muchos usuarios suelen estar alojadas por separado para mejorar el rendimiento y la escalabilidad.`
+
+---
+#### Tipos de inyecciones SQL
+<p align="center">
+  <img src="https://i.postimg.cc/tTvj96Fy/sql-diagrama.png" 
+  alt="sql"/>
+</p>
+Inyección clásica > Se insertan comandos SQL maliciosos en las entradas de las aplicaciones web para manipular la base de datos.
+
+Inyección ciega > El atacante no recibe respuestas directas de la base de datos, sino que tiene que interferir la información mediante el comportamiento de la aplicación.
+
+Inyección fuera de banda > La aplicación no muestra resultados de las consultas SQL, pero es posible realizar operaciones en la DB.
