@@ -100,6 +100,7 @@ https://example.com/filter?category=gift' ORDER BY 4-- -
   <img src="https://i.postimg.cc/W1tQcpBz/image.png" alt="sql"/>
 </p>
 **"Al obtener un error se sabe que el número anterior es el número de columnas."**
+
 ##### 2.do Paso:
 
 ### ' UNION SELECT [NULL x cant_columns]-- -
