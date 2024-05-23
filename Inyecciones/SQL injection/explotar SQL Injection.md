@@ -80,6 +80,7 @@ SELECT username,password FROM users WHERE category=Accessories' UNION SELECT use
   <img src="https://i.postimg.cc/Fs1s7nJQ/sql-ejemplo-bool.png" alt="sql"/>
 </p>
 ---
+
 ## Tipos de inyecciones y "paso a paso".
 
 ##### 1.er Paso:
@@ -90,6 +91,7 @@ Determina `' ORDER BY [num]-- -` el número de columnas en la tabla de la base d
   <img src="https://i.postimg.cc/N0GGQs8R/sqli.png" alt="sqli"/>
 </p>
 + Ejemplo.
+
 ```url
 https://example.com/filter?category=gift' ORDER BY 1-- -
 https://example.com/filter?category=gift' ORDER BY 2-- -
