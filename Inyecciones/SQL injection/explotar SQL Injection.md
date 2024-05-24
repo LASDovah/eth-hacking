@@ -79,6 +79,7 @@ SELECT username,password FROM users WHERE category=Accessories' UNION SELECT use
 <p align="center">
   <img src="https://i.postimg.cc/Fs1s7nJQ/sql-ejemplo-bool.png" alt="sql"/>
 </p>
+
 ---
 
 ## Tipos de inyecciones y "paso a paso".
