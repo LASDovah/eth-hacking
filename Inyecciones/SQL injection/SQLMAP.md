@@ -1,4 +1,7 @@
 # Comandos básicos de la herramienta SQLMap
+<p align="center">
+  <img src="https://i.postimg.cc/7LMcjndm/SQLmap.png" alt="sql"/>
+</p>
 
 - Notas: 
 	1. Si se utiliza `-r` con `sqlmap` para leer un a solicitud HTTP desde un archivo, no es necesario utilizar la opción `-u`.
