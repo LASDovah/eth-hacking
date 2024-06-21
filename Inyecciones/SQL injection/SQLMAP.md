@@ -46,7 +46,7 @@
 | Bypass con `--prefix`   |
 | ----------------------- |
 | `--prefix="') "`        |
-| `--prefix='") '`        |
+| `--prefix='``)'`        |
 | `--prefix="' "`         |
 | `--prefix="') /*"`      |
 | `--prefix=") /*"`       |
